@@ -1,0 +1,733 @@
+// @import 'base/typography';
+// @import 'base';
+// @import 'base/b-utilities';
+
+// @import 'base/colors';
+
+// @import 'components/nav';
+// @import 'components/home-header';
+// @import 'components/footer';
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,900|Poiret+One');
+// @import "breakpoint";
+@function rd($x, $y) {
+  $size: percentage($x / $y);
+  @return $size;
+}
+@function rem($x) {
+  $size: ($x / 16);
+  @return #{$size}rem;
+}
+@mixin fz($size) {
+  font-size: #{$size}px; //Fallback in px
+  font-size: rem($size);
+}
+
+$red: #aa3c3a;
+$black: #2a2a2a;
+$blue: #7379d4;
+$green: #00897b;
+$purple: #7b1fa2;
+$white: #fafafa;
+
+$lato: 'Lato', sans-serif;
+$po: 'Poiret One', cursive;
+
+%clearfix {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+}
+
+body {
+  font-family: $lato;
+  padding: 10vh 10%;
+  background-color: $black;
+  // background-color: -moz-linear-gradient(top, #7976ef 0%, #a6cafc 100%);
+  // background-color: -webkit-linear-gradient(top, #7976ef 0%,#a6cafc 100%);
+  // background-color: linear-gradient(to bottom, #7976ef 0%,#a6cafc 100%);
+  // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7976ef', endColorstr='#a6cafc',GradientType=0 );
+  background-repeat: no-repeat;
+}
+#gameContainer {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  padding-top: rem(139.4);
+  color: white;
+  margin-bottom: rem(180.42);
+  font-family: $lato;
+  line-height: 1.3;
+  font-weight: 500;
+  @include fz(24);
+  width: 414px;
+  height: 90vh;
+  background: $blue;
+  animation: colorFlux 20.8s both infinite ease-in-out;
+  transition: all 1.5s ease-in-out;
+}
+
+@keyframes colorFlux {
+  0% {
+    background-color: $blue;
+  }
+  20% {
+    background-color: $red;
+  }
+  40% {
+    background-color: $green;
+  }
+
+  60% {
+    background-color: $purple;
+  }
+  80% {
+    background-color: $black;
+  }
+}
+
+#fireFlux {
+  animation: fireflux 1s both infinite ease-in-out;
+}
+@keyframes fireFlux {
+  0% {
+    background-color: #eaa64e;
+  }
+  50% {
+    background-color: #c56943;
+  }
+
+  100% {
+    background-color: #eaa64e;
+  }
+}
+.promptContainer {
+  width: 68.115942029%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+.promptTitle {
+  @include fz(28);
+  // width: rd(282,414);
+  font-family: $lato;
+  line-height: 1.3;
+  font-weight: 400;
+  margin: 0 auto;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+.proTitleAnim {
+  animation: slow 0.3s both ease-in-out;
+}
+
+@keyframes slow {
+  // from {
+  // 	opacity: 0;
+  // }
+  // to {
+  // 	opacity: 1;
+  // }
+  10% {
+    opacity: 0;
+  }
+
+  20% {
+  }
+  30% {
+  }
+
+  40% {
+  }
+  50% {
+  }
+
+  60% {
+  }
+  70% {
+  }
+
+  80% {
+  }
+  90% {
+  }
+
+  100% {
+  }
+}
+.continue {
+  margin: 0 auto;
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 45%;
+  bottom: 50px;
+  animation: tapBlink 8s both infinite ease-in-out;
+}
+.hidden {
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+}
+@keyframes tapBlink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.button1 {
+  @include fz(18);
+  // border: 0px;
+  color: white;
+  // background-color: $black;
+  float: left;
+  position: relative;
+  z-index: 1;
+  // bottom: 0;
+  width: 50%;
+  padding: 1rem;
+  z-index: 4;
+  // margin-top: 100px;
+  cursor: pointer;
+  // bottom:-10px;
+  min-height: 40px;
+  // margin-bottom: 1rem;
+  left: 0;
+}
+.button2 {
+  cursor: pointer;
+  @include fz(18);
+  // border: 0px;
+  min-width: 100px;
+  z-index: 1;
+  color: white;
+  // background-color: $black;
+  // float: right;
+  // position: relative;
+
+  width: 50%;
+  padding: 1rem;
+  min-height: 40px;
+  z-index: 4;
+  // margin-top: 100px;
+  // bottom:-10px;
+
+  right: 0;
+}
+
+.title {
+  font-family: $po;
+  text-transform: uppercase;
+  @include fz(44);
+  text-align: center;
+  animation: text 2s both ease-in-out;
+  transform-origin: center;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+@keyframes text {
+  from {
+    opacity: 0.1;
+    transform: scale(0.6);
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.startButton {
+  margin: 20rem auto 0 auto;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 0px;
+  position: relative;
+  z-index: 3;
+  background-color: $black;
+  color: white;
+  @include fz(18);
+  display: block;
+}
+
+.buttonAnimation {
+  animation: button 2s 2.5s both ease-in-out;
+}
+
+@keyframes button {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-out {
+  animation: fade-out 1.4s both ease-in-out;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation: fade-in 1.4s both ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade {
+  animation: fade 12s both ease-in-out;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    color: transparent;
+    text-shadow: 0 0 15px white;
+  }
+  10% {
+    opacity: 0.4;
+    color: transparent;
+    text-shadow: 0 0 12px white;
+  }
+  20% {
+    opacity: 0.7;
+    color: transparent;
+    text-shadow: 0 0 5px white;
+  }
+  30% {
+    opacity: 0.4;
+    color: transparent;
+    text-shadow: 0 0 15px white;
+  }
+  40% {
+    opacity: 0.7;
+    color: transparent;
+    text-shadow: 0 0 6px white;
+  }
+  50% {
+    opacity: 0.3;
+    color: transparent;
+    text-shadow: 0 0 8px white;
+  }
+  60% {
+    opacity: 0.4;
+    color: transparent;
+    text-shadow: 0 0 15px white;
+  }
+  70% {
+    opacity: 0.4;
+    color: transparent;
+    text-shadow: 0 0 15px white;
+  }
+  80% {
+    opacity: 0.7;
+    color: transparent;
+    text-shadow: 0 0 8px white;
+  }
+  90% {
+    opacity: 0.5;
+    color: transparent;
+    text-shadow: 0 0 6px white;
+  }
+
+  100% {
+    opacity: 0.9;
+    color: transparent;
+    text-shadow: 0 0 0px white;
+  }
+}
+.prName {
+  @include fz(28);
+  background-color: white;
+  padding: 0.5rem 0.6rem;
+  min-width: 50px;
+  font-weight: 300;
+  margin-bottom: rem(28);
+  display: inline-block;
+}
+.prName-unknown {
+  color: $black;
+}
+.prName-david {
+  color: $black;
+}
+.prName-melissa {
+  color: $red;
+}
+.prName-oldMan {
+  color: $blue;
+}
+
+.animation-full {
+  position: absolute;
+  top: 0;
+}
+
+.animation-home {
+  display: none;
+  position: absolute;
+  bottom: 0;
+
+  animation: firstAnimGraphic 3.5s both ease-in-out;
+}
+.icon-lighthouse {
+  bottom: 0;
+  position: absolute;
+}
+
+.animation-road {
+}
+.animation-firstScene {
+  display: none;
+}
+.animation-secondScene {
+  display: none;
+}
+.animation-thirdScene {
+  display: none;
+  bottom: 0;
+  position: absolute;
+  svg {
+    position: absolute;
+    bottom: 0;
+  }
+}
+.animation-fourthScene {
+  display: none;
+  bottom: 0;
+  position: absolute;
+  svg {
+    position: absolute;
+    bottom: 0;
+  }
+}
+.animation-fifthScene {
+  display: none;
+  bottom: 0;
+  position: absolute;
+  svg {
+    position: absolute;
+    bottom: 0;
+  }
+}
+.promptDropAnimation {
+  display: none;
+}
+.show {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#bottom {
+  opacity: 0.2;
+  animation: bottom 1s both infinite linear;
+}
+
+#roadBackground {
+  animation: road 10s both infinite linear;
+  transform-origin: center;
+}
+
+@keyframes bottom {
+  0% {
+    opacity: 0.2;
+    transform: translateY(-1000%);
+  }
+  50% {
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0.2;
+  }
+}
+
+@keyframes road {
+  0% {
+    // opacity:0;
+    transform: scale(1);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  75% {
+    transform: scale(1.13);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.promptDrop {
+  // transform-origin: center;
+  position: absolute;
+  // top: 0;
+  background-color: white;
+  color: $black;
+  height: 65.2173913%;
+  width: rd(359.86, 414);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 23.66163857%;
+  margin-bottom: 1112097013%;
+  // width: 100%;
+  z-index: 5;
+  position: absolute;
+  transform-origin: 0 0;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+}
+.showPrompt {
+  animation: slideIn 0.5s both normal ease-in-out;
+}
+.hidePrompt {
+  animation: slideOut 0.8s both normal ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: scale(0.5) translate(-50%, 100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) translate(-50%, 100%);
+    opacity: 0;
+  }
+}
+
+.promptDrop .promptTitle {
+  color: $blue;
+  margin-top: rem(128);
+  @include fz(28);
+  width: rd(282.3, 414);
+  font-family: $lato;
+}
+.promptDrop .button1,
+.promptDrop .button2 {
+  position: absolute;
+  bottom: 0;
+  max-width: 280px;
+  background-color: $blue;
+  border: 2px solid white;
+  color: white;
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+.promptDropAnimationPlus {
+  display: block;
+  opacity: 0.8;
+  position: absolute;
+  transform-origin: 0 0;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, 125%);
+}
+.firstAnimGraphic {
+  animation: firstAnimGraphic 4s 2s both ease-in-out;
+  transform-origin: center;
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translatey(-50%);
+  -moz-transform: translateX(-50%) translatey(-50%);
+  transform: translateX(-50%) translatey(-50%);
+  z-index: 1;
+}
+
+@keyframes firstAnimGraphic {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+#mid {
+  animation: tree 3s 1.5s both infinite ease-in-out;
+  transform-origin: center;
+}
+#left {
+  animation: tree 3s 1s both infinite ease-in-out;
+  transform-origin: center;
+}
+#right {
+  animation: tree 3s 2.3s both infinite ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes tree {
+  0% {
+    transform: translate(0px, 0);
+  }
+  25% {
+    transform: translate(1px, 0);
+  }
+  50% {
+    transform: translate(-1px, 0);
+  }
+
+  100% {
+    transform: translate(0px, 0);
+  }
+}
+
+#light1 {
+  opacity: 0;
+  transform-origin: left;
+  // animation: light 8s 0.3s both infinite ease-in-out;
+}
+#light2 {
+  transform-origin: left;
+  animation: light 8s both infinite ease-in-out;
+}
+#wave {
+  transform-origin: left;
+
+  animation: wave 10s 1s both infinite ease-in-out;
+}
+#light3 {
+  opacity: 0;
+  transform-origin: left;
+}
+
+@keyframes light {
+  0% {
+    opacity: 0.7;
+  }
+
+  25% {
+    transform: rotate(-5deg) scale(1.2);
+    opacity: 1;
+  }
+  75% {
+    transform: rotate(5deg) scale(1.4);
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes wave {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+#fire-mid {
+  transform-origin: center;
+  animation: fireMid 1s both infinite ease-in-out;
+}
+#fire-left {
+  transform-origin: center;
+  animation: fireMid 1.8s 0.6s both infinite ease-in-out;
+}
+#fire-right {
+  transform-origin: center;
+  animation: fireMid 1.8s 1.6s both infinite ease-in-out;
+}
+@keyframes fireMid {
+  0% {
+    opacity: 0.8;
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(0deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+.dot1 {
+  animation: dots 1s 0.5s both infinite ease-in-out;
+}
+.dot2 {
+  animation: dots 1s both infinite ease-in-out;
+}
+.dot3 {
+  animation: dots 1s 0.9s both infinite ease-in-out;
+}
+
+@keyframes dots {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(0, -10px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
